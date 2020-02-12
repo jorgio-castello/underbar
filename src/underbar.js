@@ -86,6 +86,17 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+    
+    //Declare an empty array to contain the filtered values
+    let filteredArr = [];
+    
+    //Loop through the collection with the each function
+    //Pass in the collection along with an anonymous function that will operate on the current item and index
+    _.each(collection, function(item, index) {
+      if(test(item, index, collection)) filteredArr.push(item); //Invoke the callback function on the current element, the current index, and collection; if truthy, push the current element into the array 
+    });
+
+    return filteredArr;
   };
 
   // Return all elements of an array that don't pass a truth test.

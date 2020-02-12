@@ -113,6 +113,13 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+    let uniqArr = [];
+    _.each(array, function(item, index) {
+      let testArr = array.slice(index + 1);
+      let isUniqBool = _.indexOf(testArr, item) === -1;
+      if(isUniqBool) uniqArr.push(item);
+    });
+    return uniqArr;
   };
 
 

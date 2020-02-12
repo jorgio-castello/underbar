@@ -103,6 +103,12 @@
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
+
+    //Return an array filtered for false values
+    return _.filter(collection, function(item, index) {
+      //On each element of the collection, return values that are falsy upon being tested by the callback function
+      return test(item, index, collection) === false; 
+    });
   };
 
   // Produce a duplicate-free version of the array.

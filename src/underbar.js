@@ -112,15 +112,39 @@
   };
 
   // Produce a duplicate-free version of the array.
+  //NOTE: Assumes that iterator allows the function call
+  //to determine how many elements of the SORTED array should be included in 
+  //the final return value of the UNIQ function
   _.uniq = function(array, isSorted, iterator) {
+    //Declare empty arr to hold unique values
     let uniqArr = [];
+    //Loop through the paramater array, pass an anonymous function
     _.each(array, function(item, index) {
-      let testArr = array.slice(index + 1);
+      // Declare isUniqBool to check where the current element of the loop
+      //exists in the unique array
       let isUniqBool = _.indexOf(uniqArr, item) === -1;
+      //If the value is unique, push into the uniqArr
       if(isUniqBool) uniqArr.push(item);
     });
 
-    if(isSorted) uniqArr.sort((a, b) => a > b ? a : b);
+    //isSorted handling: the logic here is the following:
+      //isSorted and iterator allow for more control of the returned unique array
+      //isSorted sorts the array in ascending order, and the iterator is a callback
+      //function that allows the caller of the function to set how many elements
+      //of the sorted array they would like to receive back
+    if(isSorted) {
+      //Sort the unique array
+      uniqArr.sort((a, b) => a > b ? a : b);
+      //Loop through the unique array, passing in an anonymous function
+      _.each(uniqArr, function(item, index) {
+        //The iterator function operates on the index passed in by the anonymous function,
+        //the loop will run until the iterator function returns true, indicating that
+        //up to the current element should be include in the final return value
+        //Handle the assembly of the final return value using first, passing in the uniq arr
+        //along with the current index + 1
+        if(iterator(index)) uniqArr = _.first(uniqArr, index + 1);
+      });
+    }
     return uniqArr;
   };
 

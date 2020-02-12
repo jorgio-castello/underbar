@@ -116,9 +116,11 @@
     let uniqArr = [];
     _.each(array, function(item, index) {
       let testArr = array.slice(index + 1);
-      let isUniqBool = _.indexOf(testArr, item) === -1;
+      let isUniqBool = _.indexOf(uniqArr, item) === -1;
       if(isUniqBool) uniqArr.push(item);
     });
+
+    if(isSorted) uniqArr.sort((a, b) => a > b ? a : b);
     return uniqArr;
   };
 

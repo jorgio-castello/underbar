@@ -135,7 +135,11 @@
     if(isSorted) {
       //Sort the unique array
       uniqArr.sort((a, b) => a > b ? a : b);
-      //Loop through the unique array, passing in an anonymous function
+
+      }
+
+      if(iterator !== undefined) {
+        //Loop through the unique array, passing in an anonymous function
       _.each(uniqArr, function(item, index) {
         //The iterator function operates on the index passed in by the anonymous function,
         //the loop will run until the iterator function returns true, indicating that

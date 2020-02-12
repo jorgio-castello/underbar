@@ -176,6 +176,28 @@
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
+    
+    //Handles accumulator values that are undefined
+    if(accumulator === undefined) {
+      //If collection is an object, slice its values
+      if(!Array.isArray(collection) && typeof collection === 'object') {
+        collection = Object.values(collection).slice(0);
+      }
+
+      //For both objects and array, set the accumulator to the first value
+      accumulator = _.first(collection);
+      //Remove the first value from the array
+      collection = collection.slice(1);
+    }
+
+    //Loop through the collection
+    _.each(collection, function(item, index) {
+      //Re-assign the accumulator to the return value of the callback
+      //on the accumulator and current value
+        accumulator = iterator(accumulator, item);
+    });
+
+    return accumulator;
   };
 
   // Determine if the array or object contains a given value (using `===`).

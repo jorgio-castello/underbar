@@ -40,7 +40,7 @@
   _.last = function(array, n) {
     return n === undefined  ? array[array.length - 1] : //Return last element if n is undefined
            n === 0          ? []                      : //Return an empty array if n is 0
-           n > array.length ? array                   : //Return the whole array if n is greater than the array's length
+           n > array.length ? array                   : //Return whole array if n is greater than the array's length
                               array.slice(n - 1);       //Return the last n elements of the array
   };
 
@@ -86,14 +86,14 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
-    
+
     //Declare an empty array to contain the filtered values
     let filteredArr = [];
-    
+
     //Loop through the collection with the each function
     //Pass in the collection along with an anonymous function that will operate on the current item and index
     _.each(collection, function(item, index) {
-      if(test(item, index, collection)) filteredArr.push(item); //Invoke the callback function on the current element, the current index, and collection; if truthy, push the current element into the array 
+      if(test(item, index, collection)) filteredArr.push(item); //Invoke the callback function on the current element, the current index, and collection; if truthy, push the current element into the array
     });
 
     return filteredArr;
@@ -107,13 +107,13 @@
     //Return an array filtered for false values
     return _.filter(collection, function(item, index) {
       //On each element of the collection, return values that are falsy upon being tested by the callback function
-      return test(item, index, collection) === false; 
+      return test(item, index, collection) === false;
     });
   };
 
   // Produce a duplicate-free version of the array.
   //NOTE: Assumes that iterator allows the function call
-  //to determine how many elements of the SORTED array should be included in 
+  //to determine how many elements of the SORTED array should be included in
   //the final return value of the UNIQ function
   _.uniq = function(array, isSorted, iterator) {
     //Declare empty arr to hold unique values
@@ -186,25 +186,25 @@
   // Reduces an array or object to a single value by repetitively calling
   // iterator(accumulator, item) for each item. accumulator should be
   // the return value of the previous iterator call.
-  //  
+  //
   // You can pass in a starting value for the accumulator as the third argument
   // to reduce. If no starting value is passed, the first element is used as
   // the accumulator, and is never passed to the iterator. In other words, in
   // the case where a starting value is not passed, the iterator is not invoked
   // until the second element, with the first element as its second argument.
-  //  
+  //
   // Example:
   //   var numbers = [1,2,3];
   //   var sum = _.reduce(numbers, function(total, number){
   //     return total + number;
   //   }, 0); // should be 6
-  //  
+  //
   //   var identity = _.reduce([5], function(total, number){
   //     return total + number * number;
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
-    
+
     //Handles accumulator values that are undefined
     if(accumulator === undefined) {
       //If collection is an object, slice its values

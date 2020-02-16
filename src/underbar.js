@@ -127,7 +127,22 @@
       //if the current value is equal to its preceding value. NOTE: this only works for isSortedArrays
     //3. iterator – a callback function that creates an array of computed values based on each element of the original array being passed to the callback function. The array of computed values will be tested for uniqueness, and unique values of the computed array will then lead to values of the original array that resulted in the computed values being passed to the results array
   _.uniq = function(array, isSorted, iterator) {
+    //Declare uniqArr array initialized as empty
+    //Declare seen array initialized as empty
 
+    //Loop through the array with each
+      //Declare a value initialized to the current element of the loop
+      //Declare a computed value equal to either the iterator(value) or value - depending on whether or not there is an iterator
+      //if: the arr isSorted and does not have an iterator
+        //if: seen does not equal computed - push value into uniqArr
+        //seen = computed
+      //else if: there is an iterator
+        //if computed does not exist within seen && computed does not equal undefined
+          //push computed into seen and value into uniqArr
+      //else if: the uniqArr array does not include the current element
+        //push value into uniqArr
+
+      //return uniqArr
 
   };
 

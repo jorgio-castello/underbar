@@ -122,9 +122,7 @@
     //1. array - represents an array that is to be evaluted by what within the array is unique
     //2. isSorted - this parameters allows for a quicker evaluation algorithm if the parameters is TRUE
       //2a. If isSorted is false, compare the current element of the array against all of the elements in the results array using indexOf
-      //2b. If isSorted is true, a value will be unique if it doesn't equal the value before it. For example, in an array such as: [1, 1, 2], we know that array[1] is not unique because it equals array[0], similarly we know that
-      //array[2] is unique because it does not equal array[1] – in other words, we can determine uniqueness by testing
-      //if the current value is equal to its preceding value. NOTE: this only works for isSortedArrays
+      //2b. If isSorted is true, a value will be unique if it doesn't equal the value before it. For example, in an array such as: [1, 1, 2], we know that array[1] is not unique because it equals array[0], similarly we know that array[2] is unique because it does not equal array[1] – in other words, we can determine uniqueness by testing if the current value is equal to its preceding value. NOTE: this only works for isSortedArrays
     //3. iterator – a callback function that creates an array of computed values based on each element of the original array being passed to the callback function. The array of computed values will be tested for uniqueness, and unique values of the computed array will then lead to values of the original array that resulted in the computed values being passed to the results array
   _.uniq = function(array, isSorted, iterator) {
     //Declare uniqArr array initialized as empty

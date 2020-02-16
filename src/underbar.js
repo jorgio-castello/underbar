@@ -128,22 +128,30 @@
     //3. iterator – a callback function that creates an array of computed values based on each element of the original array being passed to the callback function. The array of computed values will be tested for uniqueness, and unique values of the computed array will then lead to values of the original array that resulted in the computed values being passed to the results array
   _.uniq = function(array, isSorted, iterator) {
     //Declare uniqArr array initialized as empty
-    //Declare seen array initialized as empty
+    let uniqArr = [];
+    //Declare seenValues array initialized as empty
+    let seenValues = [];
 
     //Loop through the array with each
-      //Declare a value initialized to the current element of the loop
+    _.each(array, function(item, index) {
       //Declare a computed value equal to either the iterator(value) or value - depending on whether or not there is an iterator
+      let computed = iterator ? iterator(item, index, array) : item;
       //if: the arr isSorted and does not have an iterator
+      if(isSorted && !iterator) {
         //if: seen does not equal computed - push value into uniqArr
-        //seen = computed
-      //else if: there is an iterator
+        if(computed !== seenValues) uniqArr.push(item);
+        seenValues = computed;
+      } else if(iterator) {
         //if computed does not exist within seen && computed does not equal undefined
+        if(_.indexOf(seenValues, computed) === -1 && computed !== undefined) {
           //push computed into seen and value into uniqArr
-      //else if: the uniqArr array does not include the current element
-        //push value into uniqArr
+          seenValues.push(computed);
+          uniqArr.push(item);
+        }
+      } else if(_.indexOf(uniqArr, item) === -1) uniqArr.push(item);
 
-      //return uniqArr
-
+    });
+    return uniqArr;
   };
 
 

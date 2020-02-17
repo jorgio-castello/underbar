@@ -114,10 +114,10 @@
   // Produce a duplicate-free version of the array.
   //Updating uniq according to the following logic:
   //Accepts an array, an isSortedBool, and a callback function
-  //Return as 'results' array of unique values
-  //NOTE: unique values depend on whether there iterator (a callback function is passed in)
+  //Return as 'uniqArr' of unique values
+  //NOTE: unique values depend on whether there is an iterator (a callback function is passed in)
     //If there is a callback, unique values will be based on whether a computed value (i.e. callback(current element)) is unique when compared to previously computed values
-    //If there isn't a callback, a value will be considered unique if it doesn't already exist in the 'results' array
+    //If there isn't a callback, a value will be considered unique if it doesn't already exist in the 'uniqArr' array
     //Parameters
     //1. array - represents an array that is to be evaluted by what within the array is unique
     //2. isSorted - this parameters allows for a quicker evaluation algorithm if the parameters is TRUE

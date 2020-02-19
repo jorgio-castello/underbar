@@ -299,6 +299,11 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
+    //Set obj equal to the first element of the argument object
+    //Loop through the remainding argument elements, starting at 1
+      //Loop through each argument element object
+        //Add each key:value to obj
+    //Return obj
   };
 
   // Like extend, but doesn't ever overwrite a key that already

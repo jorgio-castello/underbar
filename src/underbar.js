@@ -268,12 +268,15 @@
 
     //INPUT PREPROCESSING
       //if collection is empty – return false
+      if(collection.length === 0) return false;
       //if iterator is undefined – assign it the value of _.identity
+      if(iterator === undefined) iterator = _.identity;
 
     //RETURN:
       //Map the array with the iterator
       //Call _.every that returns false if every value in the mapped array is false
         //Returns true if every value isn't false
+    return !(_.every(_.map(collection, iterator), item => item ? false : true))
   };
 
 

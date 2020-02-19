@@ -244,6 +244,18 @@
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
+    //Map the array with iterator to create an array of booleans
+
+    //INPUT PREPROCESSING
+      //if collection is empty – return true
+      //if iterator is undefined – set iterator equal to _.identity
+
+
+    //RETURN:
+    //Reduce the array to determine if all values are true
+      //Run a truthy test on both the accumulator and the current element
+        //if both are true, return true
+        //else return false
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is

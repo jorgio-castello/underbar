@@ -248,10 +248,15 @@
 
     //INPUT PREPROCESSING
       //if collection is empty – return true
+      if(collection.length === 0) return true;
       //if iterator is undefined – set iterator equal to _.identity
-
+      if(iterator === undefined) iterator = _.identity;
 
     //RETURN:
+    return _.reduce(_.map(collection, iterator), (isTruthy, currentElement) => {
+      if(isTruthy && currentElement) return true;
+      return false;
+    }, true);
     //Reduce the array to determine if all values are true
       //Run a truthy test on both the accumulator and the current element
         //if both are true, return true

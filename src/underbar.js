@@ -367,9 +367,17 @@
   // instead if possible.
   _.memoize = function(func) {
     //Declare an empty obj called results
-    //Declare an undefined variable called result
 
+    //return the following anonymous function expression:
+      //Declare a variable string and assign it the return value of JSON.stringify(arguments)
+      //REASONING: this string variable will be stored in the object, along with the return value of func when invoked on the arguments of the function
 
+      //Conditional statement: does the string exist as a key in the object results
+        //true: return the value of the property at key
+        //false:
+          //1. declare a variable called result and assign it the value of invoking func on the parameters
+          //2. create a property within the results object, with string as the key, and result as the value
+          //3. return the result
 
   };
 

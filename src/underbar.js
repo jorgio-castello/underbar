@@ -299,11 +299,18 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
-    //Set obj equal to the first element of the argument object
+    //Re-assign obj equal to the first element of the argument object
+    obj = arguments[0];
     //Loop through the remainding argument elements, starting at 1
+    for(let i = 1; i < arguments.length; i++) {
       //Loop through each argument element object
-        //Add each key:value to obj
+      _.each(arguments[i], (value, key) => {
+        obj[key] = value; //Add each key:value to obj
+      });
+    }
+
     //Return obj
+    return obj;
   };
 
   // Like extend, but doesn't ever overwrite a key that already

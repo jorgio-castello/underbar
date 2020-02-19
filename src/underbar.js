@@ -265,6 +265,15 @@
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+
+    //INPUT PREPROCESSING
+      //if collection is empty – return false
+      //if iterator is undefined – assign it the value of _.identity
+
+    //RETURN:
+      //Map the array with the iterator
+      //Call _.every that returns false if every value in the mapped array is false
+        //Returns true if every value isn't false
   };
 
 

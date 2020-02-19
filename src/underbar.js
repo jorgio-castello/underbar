@@ -253,14 +253,12 @@
       if(iterator === undefined) iterator = _.identity;
 
     //RETURN:
+    //Reduce the array to determine if all values are true in the mapped collection
     return _.reduce(_.map(collection, iterator), (isTruthy, currentElement) => {
-      if(isTruthy && currentElement) return true;
-      return false;
-    }, true);
-    //Reduce the array to determine if all values are true
       //Run a truthy test on both the accumulator and the current element
-        //if both are true, return true
-        //else return false
+      if(isTruthy && currentElement) return true; //if both are true, return true
+      return false; //else return false
+    }, true); //default value for accumulator
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is

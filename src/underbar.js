@@ -406,6 +406,27 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+    //Declare an empty obj to hold the indexes / values of the parameter arr
+    //Loop through parameter array, at each pass create a property in the obj where the key is the index, and the value is the current element of the loop
+
+    //Declare a variable indexes and set it equal to the indexes of the obj
+    //Declare a variable values and set it equal to the values of the obj
+
+    //Declare an empty array called shuffledValues
+
+    //while loop: conditions – while both indexes.length and values.length are greater than 0
+      //Declare a variable that contains a calculation for a random index
+      //Declare a variable randomIndex and assign it the value of the indexes array at randomIndexCalc
+      //Declare a variable that contains a calculation for a randomValue
+      //Declare a variable randomValue and assign it the value of the values array at randomValueCalc
+
+      //Add the randomValue at position randomIndex in the obj
+
+      //splice the indexes array at randomIndexCalc
+      //splice the values array at randomValueCalc
+
+    //return the shuffledValues array
+
   };
 
 

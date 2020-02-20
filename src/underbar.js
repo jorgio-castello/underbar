@@ -459,6 +459,16 @@
   // Calls the method named by functionOrKey on each value in the list.
   // Note: You will need to learn a bit about .apply to complete this.
   _.invoke = function(collection, functionOrKey, args) {
+    //Re-assign args to equal a slice of the arguments object passed collection and functionOrKey parameters
+    args = Array.from(arguments).slice(2);
+    //Create a boolean to determine whether functionOrKey is a function or key
+    let func = functionOrKey;
+    let isFunc = typeof func === 'function';
+
+    //Return a map that applies the functionOrKey on each item of the collection
+    return _.map(collection, value => {
+      return (isFunc ? func : value[func]).apply(value, args);
+    });
   };
 
   // Sort the object's values by a criterion produced by an iterator.

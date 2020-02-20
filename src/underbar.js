@@ -407,26 +407,38 @@
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
     //Declare an empty obj to hold the indexes / values of the parameter arr
+    let obj = {};
     //Loop through parameter array, at each pass create a property in the obj where the key is the index, and the value is the current element of the loop
+    _.each(array, function(item, index) {
+      obj[index] = item;
+    });
 
     //Declare a variable indexes and set it equal to the indexes of the obj
+    let indexes = Object.keys(obj);
     //Declare a variable values and set it equal to the values of the obj
+    let values = Object.values(obj);
 
-    //Declare an empty array called shuffledValues
+    //Declare an empty array called shuffledArr
+    let shuffledArr = Array(array.length);
 
     //while loop: conditions – while both indexes.length and values.length are greater than 0
+    while(indexes.length > 0 && values.length > 0) {
       //Declare a variable that contains a calculation for a random index
+      let randomIndexCalc = Math.floor(Math.random() * indexes.length);
       //Declare a variable randomIndex and assign it the value of the indexes array at randomIndexCalc
-      //Declare a variable that contains a calculation for a randomValue
+      let randomIndex = Number(indexes[randomIndexCalc]);
+      //Declare a variable that contains a calculation for a randomValueIndex
+      let randomValueIndex = Math.floor(Math.random() * values.length);
       //Declare a variable randomValue and assign it the value of the values array at randomValueCalc
+      let randomValue = values[randomValueIndex];
 
-      //Add the randomValue at position randomIndex in the obj
+      shuffledArr[randomIndex] = randomValue; //Add the randomValue at position randomIndex in the obj
 
-      //splice the indexes array at randomIndexCalc
-      //splice the values array at randomValueCalc
+      indexes.splice(randomIndexCalc, 1); //splice the indexes array at randomIndexCalc
+      values.splice(randomValueIndex, 1); //splice the values array at randomValueCalc
+    }
 
-    //return the shuffledValues array
-
+    return shuffledArr;
   };
 
 

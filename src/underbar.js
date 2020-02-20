@@ -393,7 +393,11 @@
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
     //Declare variable args for function parameters at index 2 and so forth
+    let args = Array.from(arguments).slice(2);
     //setTimeout - pass in an anonymous function, that invokes func after wait
+    setTimeout(function() {
+      func.apply(this, args);
+    }, wait);
   };
 
 

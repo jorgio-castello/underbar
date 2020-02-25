@@ -502,16 +502,16 @@
   _.zip = function() {
     let max = _.reduce(_.map(Array.from(arguments), n => n.length), (a, b) => a > b ? a : b);
 
-    let newArr = [];
+    let zipArr = [];
     for(let i = 0; i < max; i++) {
      let tempArr = [];
      _.each(arguments, value => {
        tempArr.push(value[i]);
       });
-      newArr.push(tempArr);
+      zipArr.push(tempArr);
     }
 
-    return newArr;
+    return zipArr;
   };
 
   // Takes a multidimensional array and converts it to a one-dimensional array.

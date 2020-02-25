@@ -500,6 +500,18 @@
   // Example:
   // _.zip(['a','b','c','d'], [1,2,3]) returns [['a',1], ['b',2], ['c',3], ['d',undefined]]
   _.zip = function() {
+    let max = _.reduce(_.map(Array.from(arguments), n => n.length), (a, b) => a > b ? a : b);
+
+    let newArr = [];
+    for(let i = 0; i < max; i++) {
+     let tempArr = [];
+     _.each(arguments, value => {
+       tempArr.push(value[i]);
+      });
+      newArr.push(tempArr);
+    }
+
+    return newArr;
   };
 
   // Takes a multidimensional array and converts it to a one-dimensional array.

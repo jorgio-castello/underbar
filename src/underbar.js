@@ -518,7 +518,7 @@
   // The new array should contain all elements of the multidimensional array.
   //
   // Hint: Use Array.isArray to check if something is an array
-  _.flatten = function(nestedArray, result) {
+  _.flatten = function(nestedArray, result = []) {
     for(let i = 0; i < nestedArray.length; i++) {
       if(!Array.isArray(nestedArray[i])) {
         result.push(nestedArray[i]);
@@ -533,6 +533,13 @@
   // Takes an arbitrary number of arrays and produces an array that contains
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
+    return _.reduce(Array.from(arguments), (arr1, arr2) => {
+      let intersectionArr = [];
+      _.each(arr1, value => {
+        if(_.indexOf(arr2, value) !== -1) intersectionArr.push(value);
+      });
+      return intersectionArr;
+    });
   };
 
   // Take the difference between one array and a number of other arrays.

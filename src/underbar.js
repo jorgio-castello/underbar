@@ -545,6 +545,13 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+    return _.reduce(Array.from(arguments), (arr1, arr2) => {
+      let differenceArr = [];
+      _.each(arr1, value => {
+        if(_.indexOf(arr2, value) === -1) differenceArr.push(value);
+      });
+      return differenceArr;
+    });
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
